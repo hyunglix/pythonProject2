@@ -1,16 +1,31 @@
-# This is a sample Python script.
+import random
+class Student:
+    def __init__(self,name):
+        self.name=name
+        self.gladness=50
+        self.progress=0
+        self.alive=True
+    def to_study(self):
+        print("Time to study")
+        self.progress+=0.12
+        self.gladness-=3
+    def to_sleep(self):
+        print("I will sleep")
+        self.gladness+=3
+    def to_chill(self):
+        print("Rest time")
+        self.gladness+= 5
+        self.progress-=0.1
+    def is_alive(self):
+        if self.progress<-0.5
+            print("Cast out")
+            self.alive=False
+        elif self.gladness<=0:
+            print('Sad..')
+            self.alive=False
+        elif self.progress<5:
+            print('Passed externally..')
+            self.alive=0
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
