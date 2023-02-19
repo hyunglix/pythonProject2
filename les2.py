@@ -8,6 +8,8 @@ class Human:
         self.job = job
         self.car = car
         self.home = home
+        self.tiredness=20
+        self.sportsmanship=50
 
     def get_home(self):
         self.home = House()
@@ -47,6 +49,7 @@ class Human:
         self.money += self.job.salary
         self.gladness -= self.job.gladness_less
         self.satiety -= 4
+        self.tiredness+=10
 
     def shopping(self, manage):
         if self.car.drive():
@@ -71,17 +74,25 @@ class Human:
             self.satiety += 2
             self.money -= 15
 
+    def sport(self):
+        self.sportsmanship+=15
+        self.tiredness+=20
+
+
     def chill(self):
         self.gladness += 10
         self.home.mess += 5
+        self.tiredness-=5
 
     def clean_home(self):
         self.gladness -= 5
         self.home.mess = 0
+        self.tiredness +=5
 
     def to_repair(self):
         self.car.strength += 100
         self.money -= 50
+
 
     def days_indexes(self, day):
         day = f" Today the {day} of {self.name}'s life "
@@ -203,6 +214,6 @@ class Job:
         self.gladness_less=job_list[self.job]["gladness_less"]
 
 nick = Human(name="Nick")
-for day in range(1,800):
+for day in range(1,365):
     if nick.live(day) == False:
         break
