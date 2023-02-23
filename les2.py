@@ -9,7 +9,7 @@ class Human:
         self.car = car
         self.home = home
         self.tiredness=20
-        self.sportsmanship=50
+        self.sportsmanship=0
 
     def get_home(self):
         self.home = House()
@@ -35,6 +35,7 @@ class Human:
                 return
             self.satiety += 5
             self.home.food -= 5
+            self.sportsmanship -= 10
 
     def work(self):
         if self.car.drive():
@@ -73,16 +74,19 @@ class Human:
             self.gladness += 10
             self.satiety += 2
             self.money -= 15
+            self.sportsmanship -= 10
 
     def sport(self):
-        self.sportsmanship+=15
-        self.tiredness+=20
+        self.sportsmanship +=15
+        self.tiredness +=20
+        self.gladness += 7
 
 
     def chill(self):
         self.gladness += 10
         self.home.mess += 5
         self.tiredness-=5
+        self.sportsmanship-= 5
 
     def clean_home(self):
         self.gladness -= 5
@@ -99,6 +103,8 @@ class Human:
         print(f"{day:=^50}", "\n")
         human_indexes = self.name + "'s indexes"
         print(f"{human_indexes:^50}", "\n")
+        print(f"Tiredness – {self.tiredness}")
+        print(f"Sportsmanship – {self.sportsmanship}")
         print(f"Money – {self.money}")
         print(f"Satiety – {self.satiety}")
         print(f"Gladness – {self.gladness}")
@@ -154,6 +160,9 @@ class Human:
         elif self.car.strength < 15:
             print("I need to repair my car")
             self.to_repair()
+        elif self.sportsmanship<=0:
+            print("Let's do some sport")
+            self.sport()
         elif dice == 1:
             print("Let`s chill!")
             self.chill()
@@ -166,6 +175,8 @@ class Human:
         elif dice == 4:
             print("Time for treats!")
             self.shopping(manage="delicacies")
+
+
 
 brands_of_car = {
     "BMW":{"fuel":100, "strength":100, "consumption": 6},
