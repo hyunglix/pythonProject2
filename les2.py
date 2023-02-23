@@ -219,6 +219,7 @@ job_list = {
 
 
 class Job:
+
     def __init__(self, job_list):
         self.job=random.choice(list(job_list))
         self.salary=job_list[self.job]["salary"]
