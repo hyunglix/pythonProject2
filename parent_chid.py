@@ -34,4 +34,4 @@ class Child(Parent):
         super().about()
         super().about_myself()
 nick=Child()
-
+#
