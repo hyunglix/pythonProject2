@@ -3,7 +3,8 @@ import logging
 logging.basicConfig(level=logging.DEBUG,
                     filename='sims.log', filemode='w',
                     format='We have next logging message: '
-                            '%(asctime)s:%(levelname)s-%(message)s')
+                            '%(asctime)s:%(levelname)s-%(message)s'
+                    )
 class Human:
     def __init__(self, name="Human", job=None, home=None, car=None):
         self.name = name
